@@ -1,0 +1,49 @@
+﻿@model IEnumerable<TheWayShop.Models.Items>
+
+@{ ViewData["Brand"] = "Home"; }
+@{ Layout = "_Layout2"; }
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <!-- this will display name of item -->
+                @Html.DisplayNameFor(model => model.Item)
+            </th>
+            <th>
+                <!-- this will display name of Brand -->
+                @Html.DisplayNameFor(model => model.Brand)
+            </th>
+            <th>
+                <!-- this will display name of Category -->
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                <!-- this will display name of price -->
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Item)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Brand)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Category)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Price)
+    </td>
+    <td>
+        <a asp-action="AddItem" asp-route-id="@item.Id" class="btn btn-primary">Get Item</a>
+    </td>
+</tr>}
+    </tbody>
+</table>

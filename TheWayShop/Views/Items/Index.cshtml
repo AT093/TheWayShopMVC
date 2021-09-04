@@ -1,0 +1,62 @@
+﻿@model IEnumerable<TheWayShop.Models.Items>
+
+@{ ViewData["Brand"] = "Home"; }
+@{
+    Layout = "_Layout2";
+}
+<br />
+<br />
+<p>
+    <a asp-action="Create">Click here to Add Item</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <!-- this will display name of item -->
+                @Html.DisplayNameFor(model => model.Item)
+            </th>
+            <th>
+                <!-- this will display name of brand -->
+                @Html.DisplayNameFor(model => model.Brand)
+            </th>
+            <th>
+                <!-- this will display name of Cetegory -->
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                <!-- this will display name of Price -->
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+<tr>
+    <td>
+        <!-- this will display name of item -->
+        @Html.DisplayFor(modelItem => item.Item)
+    </td>
+    <td>
+        <!-- this will display name of Brand -->
+        @Html.DisplayFor(modelItem => item.Brand)
+    </td>
+    <td>
+        <!-- this will display name of category -->
+        @Html.DisplayFor(modelItem => item.Category)
+    </td>
+    <td>
+        <!-- this will display  price -->
+        @Html.DisplayFor(modelItem => item.Price)
+    </td>
+    <td>
+        <a asp-action="Edit" asp-route-id="@item.Id" type="button" class="btn btn-primary">Edit</a>
+        <a asp-action="Details" asp-route-id="@item.Id" type="button" class="btn btn-primary">Details</a>
+        <a asp-action="Delete" asp-route-id="@item.Id" type="button" class="btn btn-primary">Delete</a>
+    </td>
+</tr>
+        }
+    </tbody>
+</table>
